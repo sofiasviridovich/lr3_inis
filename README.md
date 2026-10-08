@@ -8,7 +8,10 @@
 - Angular CLI
 ## Установка и запуск
 npm install -g @angular/cli
+
 npm install
+
 ng start
+
 Приложение откроется по адресу http://localhost:4200
 
