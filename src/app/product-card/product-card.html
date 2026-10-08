@@ -1,0 +1,35 @@
+<article class="card">
+  <img class="image" [src]="product.imageUrl" [alt]="product.name" />
+
+  <div class="content">
+    <h2 class="title">{{ product.name }}</h2>
+    <p class="description">{{ product.description }}</p>
+
+    <div class="rating" aria-label="Рейтинг {{ product.rating }} из 5">
+      @for (filled of stars; track $index) {
+        <img
+          class="star"
+          [src]="filled ? 'assets/images/star.svg' : 'assets/images/star-outline.svg'"
+          [alt]="filled ? 'Заполненная звезда' : 'Пустая звезда'"
+        />
+      }
+    </div>
+
+    <div class="priceRow">
+      <span class="price">{{ product.price }}$</span>
+
+      <div class="selector">
+        <button class="qtyButton" type="button" (click)="decrease()" [disabled]="quantity <= 1" aria-label="Уменьшить количество">
+          −
+        </button>
+        <span class="value">{{ formattedQuantity }}</span>
+        <button class="qtyButton" type="button" (click)="increase()" aria-label="Увеличить количество">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="button outline" type="button">Add to Cart</button>
+    <button class="button primary" type="button">Buy Now</button>
+  </div>
+</article>
